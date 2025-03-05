@@ -12,13 +12,13 @@ const Landingpage = () => {
     const opacity = 1;
 
     return (
-        <div className='h-screen w-full border-2 border-black'>
+        <div className='h-screen w-full'>
             {/* <BoxReveal>
                 <p>
                     We will cook up the
                 </p>
             </BoxReveal> */}
-            <div className="flex min-h-screen flex-col bg-white">
+            <div className="flex min-h-screen flex-col bg-white mt-32">
                 <main className="flex-1">
                     {/* Hero Section */}
                     <section className="relative overflow-hidden py-20 md:py-32">

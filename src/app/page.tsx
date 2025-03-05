@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar/Navbar";
 export default function Home() {
   return (
     <div className="min-h-screen w-full">
-      <Navbar className="bg-[#fcfbf9] border-2 rounded-full" />
+      <Navbar className="border-2 rounded-full" />
       <Landingpage />
     </div>
   );

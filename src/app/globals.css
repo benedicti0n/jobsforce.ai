@@ -10,14 +10,10 @@ white -> #fcfbf9
 cyan -> #00d5ff
 yellow -> #ffc900 */
 
-body {
-  background-color: #fcfbf9;
-}
-
 /* 
 ---break--- */
 :root {
-  --background: oklch(0.6 0.9 190);
+  --background:#fff;
   --foreground: oklch(0.222 0.84 4.9)
   --card: oklch(0.646 0.222 41.116);
   --card-foreground: oklch(0.6 0.9 190);

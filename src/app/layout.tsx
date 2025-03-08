@@ -1,7 +1,7 @@
+import { Theme } from "@radix-ui/themes";
 import type { Metadata } from "next";
+import "@radix-ui/themes/styles.css";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SmoothScroll>{children}</SmoothScroll>
+        <Theme accentColor="amber" grayColor="sand" radius="large">
+          {children}
+        </Theme>
       </body>
     </html>
   );

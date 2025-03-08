@@ -1,65 +1,38 @@
-"use client";
-import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
-import { cn } from "@/lib/utils";
-import { Button } from "../ui/Button";
+import React from 'react'
+import { Wallet } from 'lucide-react';
+import FlipText from '../ui/FlipText';
+// import { Button } from '@radix-ui/themes';
+import { Button } from "antd"
+import * as motion from "motion/react-client"
 
-const Navbar = ({ className }: { className?: string }) => {
-    const [active, setActive] = useState<string | null>(null);
-    return (
-        <div
-            className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
+const Navbar = () => (
+    <motion.div
+        className='w-2/3 fixed top-5 flex justify-between items-center rounded-3xl p-1 bg-border'
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+    >
+        <div className='w-full h-full flex justify-between items-center rounded-[1.3rem] px-6 py-4 bg-background'>
+            <img src={"/logo.png"} alt='logo' className='w-10' />
+            <div className='flex gap-6'>
+                <FlipText>Tools</FlipText>
+                <FlipText>Resources</FlipText>
+                <FlipText>Company</FlipText>
+            </div>
+            <div className='flex gap-4 justify-center items-center '>
+                <Wallet />
+                {/* <Button
+            variant='solid'
+            className='transition-all duration-1000 ease-in-out hover:scale-105'
         >
-            <Menu setActive={setActive}>
-                <img src="/logo.png" alt="" className="h-20" />
-                <MenuItem setActive={setActive} active={active} item="Services">
-                    <div className="flex flex-col space-y-4 text-sm">
-                        <HoveredLink href="/web-dev">Web Development</HoveredLink>
-                        <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-                        <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-                        <HoveredLink href="/branding">Branding</HoveredLink>
-                    </div>
-                </MenuItem>
-                <MenuItem setActive={setActive} active={active} item="Products">
-                    <div className="  text-sm grid grid-cols-2 gap-10 p-4">
-                        <ProductItem
-                            title="Algochurn"
-                            href="https://algochurn.com"
-                            src="https://assets.aceternity.com/demos/algochurn.webp"
-                            description="Prepare for tech interviews like never before."
-                        />
-                        <ProductItem
-                            title="Tailwind Master Kit"
-                            href="https://tailwindmasterkit.com"
-                            src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-                            description="Production ready Tailwind css components for your next project"
-                        />
-                        <ProductItem
-                            title="Moonbeam"
-                            href="https://gomoonbeam.com"
-                            src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-                            description="Never write from scratch again. Go from idea to blog in minutes."
-                        />
-                        <ProductItem
-                            title="Rogue"
-                            href="https://userogue.com"
-                            src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-                            description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-                        />
-                    </div>
-                </MenuItem>
-                <MenuItem setActive={setActive} active={active} item="Pricing">
-                    <div className="flex flex-col space-y-4 text-sm">
-                        <HoveredLink href="/hobby">Hobby</HoveredLink>
-                        <HoveredLink href="/individual">Individual</HoveredLink>
-                        <HoveredLink href="/team">Team</HoveredLink>
-                        <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-                    </div>
-                </MenuItem>
-                <Button>Login</Button>
-            </Menu>
-        </div >
-    );
-}
+            Login
+        </Button> */}
+                <Button color='gold' variant='solid' shape='default'>
+                    Log in
+                </Button>
+            </div>
+        </div>
+    </motion.div>
+)
 
 export default Navbar

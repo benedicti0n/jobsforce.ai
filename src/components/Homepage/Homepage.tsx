@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import { useAtom } from "jotai";
 import { darkModeAtom } from "@/store";
 
-const COLORS = ["#e2a51e", "#c88117", "#a65e17"];
+const COLORS = ["#EFBF04"];
 
 const Homepage = () => {
     const color = useMotionValue(COLORS[0]);
@@ -35,10 +35,10 @@ const Homepage = () => {
         >
             <Navbar />
 
-            <div className='flex flex-col items-center justify-center'>
+            {/* <div className='flex flex-col items-center justify-center font-sequel-medium'>
                 <h1 className='text-5xl font-bold'>We will c🍳🧑‍🍳k up the</h1>
-                <h1 className='text-7xl font-bold'>Perfect recipe for you</h1>
-            </div>
+                <h1 className='text-7xl font-bold font'>Perfect recipe for you</h1>
+            </div> */}
         </motion.div>
     )
 }

@@ -18,6 +18,33 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
+@font-face {
+  font-family: Elynor;
+  src: url("/fonts/ElyanorDemoRegular-51AR8.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Sequel;
+  src: url("/fonts/Sequel Sans Book Body.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Sequel-Medium;
+  src: url("/fonts/Sequel Sans Medium Body.ttf") format("truetype");
+}
+
+.font-elynor {
+  font-family: Elynor;
+}
+
+.font-sequel {
+  font-family: Sequel;
+}
+
+.font-sequel-medium {
+  font-family: Sequel;
+}
+
 :root {
   /* Golden Sand Palette */
   --color-golden-sand-50: #fefaec;

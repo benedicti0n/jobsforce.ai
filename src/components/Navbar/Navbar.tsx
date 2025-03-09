@@ -7,12 +7,12 @@ import * as motion from "motion/react-client"
 
 const Navbar = () => (
     <motion.div
-        className='w-2/3 fixed top-5 flex justify-between items-center rounded-3xl p-1 bg-border'
+        className='w-2/3 fixed top-5 flex justify-between items-center rounded-3xl p-0.5 bg-gradient-to-br from-[#EFBF04] to-[#000] opacity-50'
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
     >
-        <div className='w-full h-full flex justify-between items-center rounded-[1.3rem] px-6 py-4 bg-background'>
+        <div className='w-full h-full flex justify-between items-center rounded-[1.4rem] bg-background px-6 py-4'>
             <img src={"/logo.png"} alt='logo' className='w-10' />
             <div className='flex gap-6'>
                 <FlipText>Tools</FlipText>

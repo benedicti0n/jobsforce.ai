@@ -1,11 +1,11 @@
 import React from 'react'
 import * as motion from "motion/react-client";
 import Navbar from "@/components/Navbar/Navbar";
-import { SparklesText } from '../magicui/sparkles-text';
-import { Particles } from '../magicui/particles';
-import { ShimmerButton } from '../magicui/shimmer-button';
+import { SparklesText } from '../ui/magicui/sparkles-text';
+import { Particles } from '../ui/magicui/particles';
+import { ShimmerButton } from '../ui/magicui/shimmer-button';
 import { BriefcaseBusiness, Users } from 'lucide-react';
-import { AvatarCircles } from '../magicui/avatar-circles';
+import { AvatarCircles } from '../ui/magicui/avatar-circles';
 import LogoBox from '../ui/LogoBox';
 import { avatars, rightLogos, leftLogos } from './data';
 
@@ -62,7 +62,7 @@ const Homepage = () => {
                 <div className='flex flex-col items-center justify-center mt-8'>
                     <h1 className='text-5xl font-regular'>We will c🍳🧑‍🍳k up the</h1>
                     <h1 className='text-7xl font-bold flex gap-4'>
-                        <SparklesText text='Perfect recipe' className=' text-7xl' colors={{ first: "#FF8C32", second: "#EFBF04" }} sparklesCount={10} />
+                        <SparklesText text='Perfect recipe' className=' text-7xl' colors={{ first: "#FF8C32", second: "#EFBF04" }} sparklesCount={6} />
                         for you
                     </h1>
                 </div>

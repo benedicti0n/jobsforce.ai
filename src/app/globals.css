@@ -6,6 +6,10 @@
 
 /* #ecd04a */
 /* #40E2FE */
+/* #FF8C32 */
+/* #EFBF04 */
+/* rgba(255, 140, 50, 1) */
+/* rgba(255, 255, 100, 1) */
 
 @layer utilities {
   @keyframes shimmer-slide {
@@ -38,6 +42,10 @@
   .animate-spin-around {
     animation: spin-around calc(var(--speed) * 2) infinite linear;
   }
+}
+
+body {
+  background-color: black;
 }
 
 .text-main {

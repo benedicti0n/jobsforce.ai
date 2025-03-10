@@ -10,7 +10,9 @@ interface ILogoBox {
 const LogoBox = ({ children, rotate, position }: ILogoBox) => {
     return (
         <motion.div
-            className={`p-1 bg-gradient-to-br from-[#EFBF04] via-[#EFBF04]/20 to-transparent rounded-xl ${rotate} relative ${position}`}
+            className={`p-0.5 bg-gradient-to-br from-[#EFBF04] via-[#EFBF04]/20 to-transparent rounded-xl ${rotate} relative ${position}`}
+            animate={{ y: ["0%", "-10%", "0%"] }}
+            transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
         >
             <div className='p-4 bg-black rounded-lg'>
                 {children}

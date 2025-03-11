@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ReactLenis } from "@/lib/lenis"
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,9 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-      </body>
+      <ReactLenis root>
+        <body>
+          {children}
+        </body>
+      </ReactLenis>
     </html>
   );
 }

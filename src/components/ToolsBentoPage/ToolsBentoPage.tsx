@@ -25,7 +25,7 @@ const ToolsBentoPage = () => {
         <div className="w-full bg-black rounded-t-4xl border-t-1 border-[#EFBF04] py-20 relative -top-10 z-30">
             <div className="w-full flex flex-col items-center">
                 <AccentButton>All Tools at Your Fingertips</AccentButton>
-                <h1 className="md:text-6xl text-main font-bold mt-6 mb-16">
+                <h1 className="2xl:text-7xl md:text-6xl text-main font-bold mt-6 mb-16">
                     Explore Our{" "}
                     <span className="bg-gradient-to-r from-[#e4e4e4] via-[#efbf04] to-[#ff8c32] bg-clip-text text-transparent">
                         Tools

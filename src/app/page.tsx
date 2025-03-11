@@ -1,6 +1,7 @@
 import Homepage from "@/components/Homepage/Homepage";
 import ToolsBentoPage from "@/components/ToolsBentoPage/ToolsBentoPage";
 import FAQ from "@/components/FAQ/FAQ";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Homepage />
       <ToolsBentoPage />
       <FAQ />
+      <Footer />
     </div>
   );
 }

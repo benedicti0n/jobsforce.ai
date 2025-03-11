@@ -61,14 +61,14 @@ const Homepage = () => {
                     </ShimmerButton>
                 </div>
                 <div className='flex flex-col items-center justify-center mt-8'>
-                    <h1 className='md:text-4xl font-regular'>We will c🍳🧑‍🍳k up the</h1>
-                    <h1 className='md:text-6xl font-bold flex gap-4'>
-                        <SparklesText text='Perfect recipe' className=' md:text-6xl' colors={{ first: "#FF8C32", second: "#EFBF04" }} sparklesCount={6} />
+                    <h1 className='2xl:text-5xl md:text-4xl font-regular'>We will c🍳🧑‍🍳k up the</h1>
+                    <h1 className='2xl:text-7xl md:text-6xl font-bold flex md:gap-4 gap-0'>
+                        <SparklesText text='Perfect recipe' className='2xl:text-7xl md:text-6xl' colors={{ first: "#FF8C32", second: "#EFBF04" }} sparklesCount={6} />
                         for you
                     </h1>
                 </div>
                 <div className='flex flex-col justify-center items-center gap-2 mt-10'>
-                    <h1 className='md:text-lg font-regular text-main'>Loved By 100k+ People</h1>
+                    <h1 className='2xl:text-lg md:text-base font-regular text-main'>Loved By 100k+ People</h1>
                     <AvatarCircles numPeople={99} avatarUrls={avatars} />
                 </div>
 

@@ -1,3 +1,4 @@
+import FAQ from "@/components/FAQ/FAQ";
 import Homepage from "@/components/Homepage/Homepage";
 import ToolsBentoPage from "@/components/ToolsBentoPage/ToolsBentoPage";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <div className="min-h-screen w-full">
       <Homepage />
       <ToolsBentoPage />
+      <FAQ />
     </div>
   );
 }

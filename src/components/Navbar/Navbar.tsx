@@ -1,7 +1,7 @@
 import React from 'react'
 import { Wallet } from 'lucide-react';
 import FlipText from '../ui/FlipText';
-import Button from '../ui/Button';
+// import Button from '../ui/Button';
 import * as motion from "motion/react-client"
 
 const Navbar = () => (
@@ -26,9 +26,9 @@ const Navbar = () => (
         >
             Login
         </Button> */}
-                <Button variant='default'>
+                {/* <Button variant='default'>
                     Log in
-                </Button>
+                </Button> */}
             </div>
         </div>
     </motion.div>

@@ -46,7 +46,7 @@ const Homepage = () => {
                         background='#000'
                     >
                         <Users className='w-3 md:w-5 stroke-2' />
-                        <span className="whitespace-nowrap md:text-base text-[10px]">900+ Job Seeker Helped</span>
+                        <span className="whitespace-nowrap md:text-base text-xs">900+ Job Seeker Helped</span>
                     </ShimmerButton>
 
                     <ShimmerButton

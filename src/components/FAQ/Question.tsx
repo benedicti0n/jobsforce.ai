@@ -15,7 +15,7 @@ const Question = ({ question, answer }: QuestionProps) => {
         <div className="w-full mb-6">
             {/* Question Header */}
             <button
-                className="w-full flex justify-between items-center py-4 text-left text-main font-bold"
+                className="w-full flex justify-between items-center py-4 text-left text-main font-bold text-lg gap-2"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span>{question}</span>
@@ -35,9 +35,9 @@ const Question = ({ question, answer }: QuestionProps) => {
                     stiffness: 300,
                     damping: 20,
                     mass: 1,
-                    duration: 0.5
+                    duration: 1
                 }}
-                className="overflow-hidden text-secondary font-regular text-xs md:text-base"
+                className="overflow-hidden text-secondary font-regular text-base"
             >
                 <p className="pb-4">{answer}</p>
             </motion.div>

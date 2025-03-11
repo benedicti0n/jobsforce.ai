@@ -22,7 +22,7 @@ const dropIn = {
 
 const ToolsBentoPage = () => {
     return (
-        <div className="w-full bg-black rounded-t-4xl border-t-1 border-[#EFBF04] py-10 md:py-16 2xl:py-20 relative -top-10 md:-top-10 z-30">
+        <div className="w-full bg-black rounded-t-4xl border-t-1 border-[#EFBF04] py-10 md:py-16 2xl:py-20 relative -top-20 md:-top-10 z-30">
             <div className="w-full flex flex-col items-center px-6 md:px-0">
                 <AccentButton>All Tools at Your Fingertips</AccentButton>
                 <h1 className="text-4xl md:text-6xl 2xl:text-7xl text-main font-bold mt-3 md:mt-6 mb-16 md:mb-16 text-center">

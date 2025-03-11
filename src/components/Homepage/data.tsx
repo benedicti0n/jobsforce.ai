@@ -28,13 +28,13 @@ export const avatars = [
 ];
 
 export const leftLogos = [
-    { key: 1, logo: <LucideAirVent />, rotate: "rotate-20", position: "right-10" },
-    { key: 2, logo: <LucideAirVent />, rotate: "-rotate-20", position: "-right-10" },
-    { key: 3, logo: <LucideAirVent />, rotate: "rotate-20", position: "right-10" },
+    { key: 1, logo: <LucideAirVent className='md:w-6 md:mx-0 w-4 mx-1' />, rotate: "rotate-20", position: "md:right-10 right-10" },
+    { key: 2, logo: <LucideAirVent className='md:w-6 md:mx-0 w-4 mx-1' />, rotate: "-rotate-20", position: "md:-right-10" },
+    { key: 3, logo: <LucideAirVent className='md:w-6 md:mx-0 w-4 mx-1' />, rotate: "rotate-20", position: "md:right-10 right-10" },
 ];
 
 export const rightLogos = [
-    { key: 1, logo: <LucideAirVent />, rotate: "rotate-20", position: "-right-10" },
-    { key: 2, logo: <LucideAirVent />, rotate: "-rotate-20", position: "right-10" },
-    { key: 3, logo: <LucideAirVent />, rotate: "rotate-20", position: "-right-10" },
+    { key: 1, logo: <LucideAirVent className='md:w-6 md:mx-0 w-4 mx-1' />, rotate: "-rotate-20", position: "md:-right-10 -right-10" },
+    { key: 2, logo: <LucideAirVent className='md:w-6 md:mx-0 w-4 mx-1' />, rotate: "rotate-20", position: "md:right-10" },
+    { key: 3, logo: <LucideAirVent className='md:w-6 md:mx-0 w-4 mx-1' />, rotate: "-rotate-20", position: "md:-right-10 -right-10" },
 ];

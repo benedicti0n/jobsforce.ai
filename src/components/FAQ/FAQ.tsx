@@ -11,14 +11,16 @@ const FAQ = () => {
         <div className="w-full bg-black py-20 relative -top-10 z-30">
             <div className="w-full flex flex-col items-center">
                 <AccentButton>Frequently Asked Questions</AccentButton>
-                <h1 className="md:text-6xl text-main font-bold mt-6 mb-4">
-                    Any{" "}
-                    <span className="bg-gradient-to-r from-[#e4e4e4] via-[#efbf04] to-[#ff8c32] bg-clip-text text-transparent">
-                        Questions?
-                    </span>{" "}
-                    Look Here
+                <h1 className="text-4xl md:text-6xl 2xl:text-7xl text-main font-bold mt-3 md:mt-6 mb-6 md:mb-16 text-center md:flex-row flex-col">
+                    <div>
+                        Any{" "}
+                        <span className="bg-gradient-to-r from-[#e4e4e4] via-[#efbf04] to-[#ff8c32] bg-clip-text text-transparent">
+                            Questions?
+                        </span>{" "}
+                    </div>
+                    <span className="">Look Here</span>
                 </h1>
-                <p className="font-regular text-secondary mb-16 w-1/2 text-center">
+                <p className="font-regular text-secondary text-xs md:text-base mb-16 md:w-1/2 px-4 md:px-0 text-center">
                     We’re here to help! Below are answers to some common questions about
                     how JobsForce.ai works and how it can assist you in streamlining your
                     job application process.
@@ -26,7 +28,7 @@ const FAQ = () => {
 
                 {/* FAQ Questions List with Animation */}
                 <motion.div
-                    className="w-2/3"
+                    className="md:w-2/3 w-full px-6"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of it is visible

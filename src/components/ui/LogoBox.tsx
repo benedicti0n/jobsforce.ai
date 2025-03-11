@@ -14,7 +14,7 @@ const LogoBox = ({ children, rotate, position }: ILogoBox) => {
             animate={{ y: ["0%", "-10%", "0%"] }}
             transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
         >
-            <div className='p-4 bg-black rounded-lg'>
+            <div className='md:p-4 p-3 bg-black rounded-lg'>
                 {children}
             </div>
         </motion.div>

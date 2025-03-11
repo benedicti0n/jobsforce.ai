@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -27,13 +26,18 @@ const Question = ({ question, answer }: QuestionProps) => {
                     <ChevronDown size={20} />
                 </motion.div>
             </button>
-
             {/* Answer Section with Framer Motion */}
             <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="overflow-hidden text-secondary font-regular"
+                transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20,
+                    mass: 1,
+                    duration: 0.5
+                }}
+                className="overflow-hidden text-secondary font-regular text-xs md:text-base"
             >
                 <p className="pb-4">{answer}</p>
             </motion.div>

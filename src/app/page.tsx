@@ -1,6 +1,6 @@
-import FAQ from "@/components/FAQ/FAQ";
 import Homepage from "@/components/Homepage/Homepage";
 import ToolsBentoPage from "@/components/ToolsBentoPage/ToolsBentoPage";
+import FAQ from "@/components/FAQ/FAQ";
 
 export default function Home() {
   return (

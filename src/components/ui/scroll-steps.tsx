@@ -23,7 +23,7 @@ const ScrollSteps = () => {
         const observer = new IntersectionObserver(
             (entries) => {
                 const [entry] = entries;
-                const isFullyVisible = entry.intersectionRatio >= 0.1;
+                const isFullyVisible = entry.intersectionRatio >= 0.5;
                 setIsInView(isFullyVisible);
 
                 if (isFullyVisible) {
@@ -36,7 +36,7 @@ const ScrollSteps = () => {
                     scrollAccumulator.current = 0;
                 }
             },
-            { threshold: 0.2 }
+            { threshold: 1 }
         );
 
         if (containerRef.current) {

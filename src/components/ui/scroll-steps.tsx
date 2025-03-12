@@ -3,7 +3,7 @@
 import React from 'react';
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
-import { LucideArrowDown, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { steps } from '../ProcessPage/data';
 
 const ScrollSteps = () => {

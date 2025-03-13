@@ -1,12 +1,69 @@
-"use client"
-import React from 'react';
-import styled from 'styled-components';
+"use client";
 
-const Upload = () => {
+import { useRouter } from "next/navigation";
+import React, { useContext, useState } from "react";
+import styled from "styled-components";
+import { ThemeContext } from "./ThemeContext";
+import { uploadFile } from "@/services/uploadService";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Cookies from "js-cookie";
+import pdfToText from "react-pdftotext";
+import Modal from 'react-modal';
+
+const ResumeUploadButton = () => {
+  const router = useRouter();
+  const { setPdfResume, setResumeDataContext } = useContext(ThemeContext);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (file.size > 1024 * 1024) {
+      toast.warning("File size exceeds 1MB. Please upload a smaller file.");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const token = Cookies.get("token");
+      console.log("Token before upload:", token);
+      if (!token) {
+        toast.error("Session expired. Please log in again.");
+        router.push("/signup");
+        return;
+      }
+
+      // Upload file
+      const response = await uploadFile(file, token);
+
+      if (response.limit) {
+        toast.warning("Maximum upload limit reached. Delete an old resume to upload a new one.");
+        return;
+      }
+
+      setPdfResume(file);
+
+      // Extract text from PDF
+      const extractedText = await pdfToText(file);
+      setResumeDataContext(extractedText);
+
+      toast.success("Resume uploaded successfully!");
+      router.push("/job-apply");
+    } catch (error) {
+      console.error("Upload failed:", error);
+      toast.error("Upload failed. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <StyledWrapper className='mt-6'>
+    <StyledWrapper>
       <div className="input-div">
-        <input className="input" name="file" type="file" />
+        <input className="input" name="file" type="file" onChange={handleFileChange} disabled={isLoading} />
         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" strokeLinejoin="round" strokeLinecap="round" viewBox="0 0 24 24" strokeWidth={2} fill="none" stroke="currentColor" className="icon">
           <polyline points="16 16 12 12 8 16" />
           <line y2={21} x2={12} y1={12} x1={12} />
@@ -14,9 +71,14 @@ const Upload = () => {
           <polyline points="16 16 12 12 8 16" />
         </svg>
       </div>
+      <Modal isOpen={isLoading} onRequestClose={() => setIsLoading(false)} ariaHideApp={false}>
+        <div className="modal-content">
+          <p>Uploading...</p>
+        </div>
+      </Modal>
     </StyledWrapper>
   );
-}
+};
 
 const StyledWrapper = styled.div`
   .input-div {
@@ -129,4 +191,5 @@ const StyledWrapper = styled.div`
   }
 `;
 
-export default Upload;
+
+export default ResumeUploadButton;

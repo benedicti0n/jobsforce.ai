@@ -30,31 +30,34 @@ const Navbar1 = () => {
     window.location.href = "/login";
   };
   return (
-    <section className="w-full flex items-center justify-center absolute z-70 ">
+    <section className="fixed w-full flex items-center justify-center z-70 ">
       <div className="w-full md:w-2/3 pt-6">
         <nav className="hidden justify-between items-center lg:flex gap-6">
           <div className="w-full flex items-center justify-between">
             <img src={logo.src} className="w-16 cursor-pointer" alt={logo.alt} onClick={() => router.push("/")} />
-            <Wallet className="text-main w-8 h-8" />
-          </div>
-          <div className="fixed left-3/7 bg-gradient-to-br from-[#FF8C32] via-[#EFBF04]/30 to-transparent rounded-xl p-0.5">
-            <div className="flex items-center bg-black rounded-xl p-2">
-              <NavigationMenu>
-                <NavigationMenuList className="gap-1">
-                  {menu.map((item) => renderMenuItem(item))}
-                </NavigationMenuList>
-              </NavigationMenu>
+            <div className="bg-gradient-to-br from-[#FF8C32] via-[#EFBF04]/30 to-transparent rounded-xl p-0.5">
+              <div className="flex items-center bg-black rounded-xl p-2">
+                <NavigationMenu>
+                  <NavigationMenuList className="gap-1">
+                    {menu.map((item) => renderMenuItem(item))}
+                  </NavigationMenuList>
+                </NavigationMenu>
+              </div>
+            </div>
+            <div className="flex justify-between items-center gap-4">
+              <Wallet className="text-main w-8 h-8" />
+              {!Cookies.get("userName") ? (
+                <Button variant={"default"} onClick={() => router.push("/signup")}>
+                  Sign Up
+                </Button>
+              ) : (
+                <Button variant={"destructive"} onClick={handleLogout}>
+                  Log Out
+                </Button>
+              )}
             </div>
           </div>
-          {!Cookies.get("userName") ? (
-            <Button variant={"default"} onClick={() => router.push("/signup")}>
-              Sign Up
-            </Button>
-          ) : (
-            <Button variant={"destructive"} onClick={handleLogout}>
-              Log Out
-            </Button>
-          )}
+
         </nav>
 
 

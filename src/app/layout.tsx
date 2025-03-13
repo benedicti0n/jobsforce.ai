@@ -3,6 +3,7 @@ import { ReactLenis } from "@/lib/lenis";
 import "./globals.css";
 import { ThemeProvider } from "@/components/Homepage/ThemeContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Navbar1 } from "@/components/Navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,7 +25,10 @@ export default function RootLayout({
       <ReactLenis root>
         <body>
           <GoogleOAuthProvider clientId={clientId}>
-            <ThemeProvider>{children}</ThemeProvider>
+            <ThemeProvider>
+              <Navbar1 />
+              {children}
+            </ThemeProvider>
           </GoogleOAuthProvider>
         </body>
       </ReactLenis>

@@ -1,8 +1,9 @@
-import { Newspaper, Search, UserCheck, Briefcase, CreditCard, Info, Mail, ClipboardType, DollarSign } from "lucide-react";
+import { Newspaper, Search, UserCheck, Briefcase, CreditCard, Info, Mail, ClipboardType, DollarSign, User } from "lucide-react";
+import Cookies from "js-cookie";
 
 interface MenuItem {
-    title: string;
-    url: string;
+    title?: string;
+    url?: string;
     description?: string;
     icon?: React.ReactNode;
     items?: MenuItem[];
@@ -105,4 +106,24 @@ export const menu: MenuItem[] = [
             },
         ],
     },
+    ...(Cookies.get("userName") ? [
+        {
+            title: "Profile",
+            url: "#",
+            items: [
+                {
+                    title: "My Profile",
+                    description: "Learn more about our mission and values.",
+                    icon: <User className="size-5 shrink-0" />,
+                    url: "/profile",
+                },
+                {
+                    title: "My Resume",
+                    description: "Get in touch with our support team for assistance.",
+                    icon: <Newspaper className="size-5 shrink-0" />,
+                    url: "/myResumes",
+                },
+            ],
+        },
+    ] : []),
 ]; 

@@ -1,6 +1,7 @@
 "use client"
 
 import { Menu, Wallet } from "lucide-react";
+import Cookies from "js-cookie";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@/components/ui/accordion";
 // import { Button } from "../ui/Button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, } from "@/components/ui/navigation-menu";
@@ -19,6 +20,15 @@ interface MenuItem {
 
 const Navbar1 = () => {
   const router = useRouter()
+
+  const handleLogout = () => {
+    const cookies = document.cookie.split(";");
+    cookies.forEach((cookie) => {
+      const cookieName = cookie.split("=")[0].trim();
+      Cookies.remove(cookieName);
+    });
+    window.location.href = "/login";
+  };
   return (
     <section className="w-full flex items-center justify-center absolute z-70 ">
       <div className="w-full md:w-2/3 pt-6">
@@ -36,9 +46,15 @@ const Navbar1 = () => {
               </NavigationMenu>
             </div>
           </div>
-          <Button variant={"default"} onClick={() => router.push("/signup")}>
-            Sign Up
-          </Button>
+          {!Cookies.get("userName") ? (
+            <Button variant={"default"} onClick={() => router.push("/signup")}>
+              Sign Up
+            </Button>
+          ) : (
+            <Button variant={"destructive"} onClick={handleLogout}>
+              Log Out
+            </Button>
+          )}
         </nav>
 
 
@@ -69,9 +85,15 @@ const Navbar1 = () => {
                   </Accordion>
                   <div className="flex flex-col gap-3">
                     {/* button here */}
-                    <Button onClick={() => router.push("/signup")}>
-                      Sign Up
-                    </Button>
+                    {!Cookies.get("userName") ? (
+                      <Button variant={"default"} onClick={() => router.push("/signup")}>
+                        Sign Up
+                      </Button>
+                    ) : (
+                      <Button variant={"destructive"} onClick={handleLogout}>
+                        Log Out
+                      </Button>
+                    )}
                   </div>
                 </div>
               </SheetContent>

@@ -278,7 +278,7 @@ const Profile = () => {
     };
 
     return (
-        <div className="min-h-screen p-4 md:pt-32">
+        <div className="min-h-screen px-4 pt-22 md:pt-32">
             <div className="max-w-7xl mx-auto">
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-6">
                     <div className="relative">

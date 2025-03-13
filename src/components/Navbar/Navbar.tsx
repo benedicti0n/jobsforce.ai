@@ -57,7 +57,6 @@ const Navbar1 = () => {
               )}
             </div>
           </div>
-
         </nav>
 
 
@@ -165,7 +164,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
           {item.items.map((subItem) => (
             <a
               key={subItem.title}
-              className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-main"
+              className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-white/10 hover:text-main"
               href={subItem.url}
             >
               {subItem.icon}

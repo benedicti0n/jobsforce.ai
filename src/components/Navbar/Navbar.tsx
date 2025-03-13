@@ -1,158 +1,169 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { Menu, X, Newspaper, Wallet } from "lucide-react";
-import FlipText from "../ui/FlipText";
-import { motion, AnimatePresence } from "framer-motion";
+import { Menu, Wallet } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@/components/ui/accordion";
+// import { Button } from "../ui/Button";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, } from "@/components/ui/navigation-menu";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, } from "@/components/ui/sheet";
+import { useRouter } from "next/navigation";
+import { Button } from "../ui/Button";
+import { logo, menu } from './navbarConfig'; // Importing logo and menu from the new config file
 
-const Navbar = () => {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+interface MenuItem {
+  title: string;
+  url: string;
+  description?: string;
+  icon?: React.ReactNode;
+  items?: MenuItem[];
+}
 
-    return (
-        <div className="relative z-60">
-            <motion.div
-                className="w-2/3 h-16 fixed z-60 top-5 flex justify-between items-center rounded-2xl p-[2px] bg-gradient-to-br from-[#FF8C32] via-[#EFBF04]/50 to-transparent"
-                initial={{ y: -100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-            >
-                <div className="w-full h-full flex justify-between items-center rounded-2xl bg-black px-6 py-4 text-main">
-                    {/* Logo */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={"/logo.png"} alt="logo" className="h-full" />
-
-                    {/* Desktop Menu */}
-                    <div className="hidden md:flex gap-6">
-                        <NavItem title="Tools">
-                            <DropdownMenu>
-                                <DropdownItem icon={<Newspaper className="w-5" />} title="AI Resume Builder" />
-                                <DropdownItem icon={<Newspaper className="w-5" />} title="Job Tracker" />
-                                <DropdownItem icon={<Newspaper className="w-5" />} title="Cover Letter Generator" />
-                            </DropdownMenu>
-                        </NavItem>
-
-                        <NavItem title="Resources">
-                            <DropdownMenu>
-                                <DropdownItem icon={<Newspaper className="w-5" />} title="Blog" />
-                                <DropdownItem icon={<Newspaper className="w-5" />} title="Career Guides" />
-                                <DropdownItem icon={<Newspaper className="w-5" />} title="Interview Prep" />
-                            </DropdownMenu>
-                        </NavItem>
-
-                        <NavItem title="Company">
-                            <DropdownMenu>
-                                <DropdownItem icon={<Newspaper className="w-5" />} title="About Us" />
-                                <DropdownItem icon={<Newspaper className="w-5" />} title="Careers" />
-                                <DropdownItem icon={<Newspaper className="w-5" />} title="Contact" />
-                            </DropdownMenu>
-                        </NavItem>
-                    </div>
-
-                    {/* Wallet Icon */}
-                    <div className="hidden md:flex gap-4 justify-center items-center">
-                        <Wallet />
-                    </div>
-
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden text-main focus:outline-none"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    >
-                        {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-                    </button>
-                </div>
-            </motion.div>
-
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute top-20 left-0 w-full bg-black p-4 rounded-b-2xl md:hidden"
-                    >
-                        <div className="flex flex-col gap-4">
-                            <NavItem title="Tools">
-                                <DropdownMenu>
-                                    <DropdownItem icon={<Newspaper className="w-5" />} title="AI Resume Builder" />
-                                    <DropdownItem icon={<Newspaper className="w-5" />} title="Job Tracker" />
-                                    <DropdownItem icon={<Newspaper className="w-5" />} title="Cover Letter Generator" />
-                                </DropdownMenu>
-                            </NavItem>
-
-                            <NavItem title="Resources">
-                                <DropdownMenu>
-                                    <DropdownItem icon={<Newspaper className="w-5" />} title="Blog" />
-                                    <DropdownItem icon={<Newspaper className="w-5" />} title="Career Guides" />
-                                    <DropdownItem icon={<Newspaper className="w-5" />} title="Interview Prep" />
-                                </DropdownMenu>
-                            </NavItem>
-
-                            <NavItem title="Company">
-                                <DropdownMenu>
-                                    <DropdownItem icon={<Newspaper className="w-5" />} title="About Us" />
-                                    <DropdownItem icon={<Newspaper className="w-5" />} title="Careers" />
-                                    <DropdownItem icon={<Newspaper className="w-5" />} title="Contact" />
-                                </DropdownMenu>
-                            </NavItem>
-
-                            {/* Wallet Icon */}
-                            <div className="flex justify-center">
-                                <Wallet />
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    );
-};
-
-const NavItem = ({ title, children }: { title: string; children: React.ReactNode }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <div
-            className="relative flex flex-col items-center w-full md:w-auto"
-            onMouseEnter={() => setIsOpen(true)}
-            onMouseLeave={() => setIsOpen(false)}
-        >
-            <div className="w-full text-center cursor-pointer">
-                <FlipText>{title}</FlipText>
+const Navbar1 = () => {
+  const router = useRouter()
+  return (
+    <section className="w-full flex items-center justify-center absolute z-70 ">
+      <div className="w-full md:w-2/3 pt-6">
+        <nav className="hidden justify-between items-center lg:flex gap-6">
+          <div className="w-full flex items-center justify-between">
+            <img src={logo.src} className="w-16 cursor-pointer" alt={logo.alt} onClick={() => router.push("/")} />
+            <Wallet className="text-main w-8 h-8" />
+          </div>
+          <div className="fixed left-3/7 bg-gradient-to-br from-[#FF8C32] via-[#EFBF04]/30 to-transparent rounded-xl p-0.5">
+            <div className="flex items-center bg-black rounded-xl p-2">
+              <NavigationMenu>
+                <NavigationMenuList className="gap-1">
+                  {menu.map((item) => renderMenuItem(item))}
+                </NavigationMenuList>
+              </NavigationMenu>
             </div>
+          </div>
+          <Button variant={"default"} onClick={() => router.push("/signup")}>
+            Sign Up
+          </Button>
+        </nav>
 
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute left-1/2 -translate-x-1/2 top-11 bg-gradient-to-br from-[#FF8C32] via-[#EFBF04]/30 to-transparent rounded-xl text-main shadow-lg p-0.5 w-max"
-                    >
-                        <div className="h-full w-full bg-black rounded-xl">
-                            {children}
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+
+        <div className="flex lg:hidden fixed z-70 px-6 w-full">
+          <div className="w-full flex items-center justify-between">
+            <img src={logo.src} className="w-12 cursor-pointer" alt={logo.alt} onClick={() => router.push("/")} />
+            <Sheet>
+              <SheetTrigger>
+                <div className="bg-gradient-to-br from-[#FF8C32] via-[#EFBF04]/30 to-transparent rounded-lg p-0.5">
+                  <div className="bg-black p-3 rounded-lg">
+                    <Menu className="size-4 text-white" />
+                  </div>
+                </div>
+              </SheetTrigger>
+              <SheetContent className="overflow-y-auto">
+                <SheetHeader>
+                  <SheetTitle>
+                    <img src={logo.src} className="w-12" alt={logo.alt} />
+                  </SheetTitle>
+                </SheetHeader>
+                <div className="my-6 flex flex-col gap-6">
+                  <Accordion
+                    type="single"
+                    collapsible
+                    className="flex w-full flex-col gap-4"
+                  >
+                    {menu.map((item) => renderMobileMenuItem(item))}
+                  </Accordion>
+                  <div className="flex flex-col gap-3">
+                    {/* button here */}
+                    <Button onClick={() => router.push("/signup")}>
+                      Sign Up
+                    </Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
-    );
+      </div>
+    </section>
+  );
 };
 
-const DropdownMenu = ({ children }: { children: React.ReactNode }) => {
-    return <div className="flex flex-col gap-2 p-2">{children}</div>;
-};
-
-const DropdownItem = ({ title, icon }: { title: string; icon: React.ReactNode }) => {
+const renderMenuItem = (item: MenuItem) => {
+  if (item.items) {
     return (
-        <div className="px-2 py-2 hover:bg-white/15 hover:text-main rounded-md transition duration-200 cursor-pointer flex gap-2">
-            {icon}
-            {title}
-        </div>
+      <NavigationMenuItem key={item.title} className="text-muted-foreground">
+        <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul className="w-80 p-3">
+            <NavigationMenuLink>
+              {item.items.map((subItem) => (
+                <li key={subItem.title}>
+                  <a
+                    className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/10"
+                    href={subItem.url}
+                  >
+                    {subItem.icon}
+                    <div>
+                      <div className="text-sm font-semibold">
+                        {subItem.title}
+                      </div>
+                      {subItem.description && (
+                        <p className="text-sm leading-snug text-muted-foreground">
+                          {subItem.description}
+                        </p>
+                      )}
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </NavigationMenuLink>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
     );
+  }
+
+  return (
+    <a
+      key={item.title}
+      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+      href={item.url}
+    >
+      {item.title}
+    </a>
+  );
 };
 
-export default Navbar;
+const renderMobileMenuItem = (item: MenuItem) => {
+  if (item.items) {
+    return (
+      <AccordionItem key={item.title} value={item.title} className="border-b-0">
+        <AccordionTrigger className="py-0 font-semibold hover:no-underline">
+          {item.title}
+        </AccordionTrigger>
+        <AccordionContent className="mt-2">
+          {item.items.map((subItem) => (
+            <a
+              key={subItem.title}
+              className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-main"
+              href={subItem.url}
+            >
+              {subItem.icon}
+              <div>
+                <div className="text-sm font-bold">{subItem.title}</div>
+                {subItem.description && (
+                  <p className="text-sm leading-snug text-secondary">
+                    {subItem.description}
+                  </p>
+                )}
+              </div>
+            </a>
+          ))}
+        </AccordionContent>
+      </AccordionItem>
+    );
+  }
+
+  return (
+    <a key={item.title} href={item.url} className="font-semibold">
+      {item.title}
+    </a>
+  );
+};
+
+export { Navbar1 };

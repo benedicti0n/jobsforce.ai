@@ -7,7 +7,7 @@ import { BriefcaseBusiness, Users } from 'lucide-react';
 import { AvatarCircles } from '../ui/magicui/avatar-circles';
 import LogoBox from '../ui/LogoBox';
 import { avatars, rightLogos, leftLogos } from './data';
-import Upload from '../ui/Upload';
+import Upload from './ResumeUploadButton';
 
 const Homepage = () => {
     return (
